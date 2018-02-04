@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context.xsd
+       http://www.springframework.org/schema/mvc
+	   http://www.springframework.org/schema/mvc/spring-mvc-3.0.xsd">
+
+
+    <!--Сканирует пакеты для поиска компонентов-->
+    <context:component-scan base-package="ru.home.*"/>
+
+    <!--Включает Spring MVC @Controller программную модель. (можно сказать аннотации сканирует) -->
+    <mvc:annotation-driven/>
+
+    <!--Перехватывает HTTP.GET запросы для /resources/**". Эффективно для обработки статических данных в директории {webappRoot}/resources-->
+    <mvc:resources mapping="/resources/**" location="resources"/>
+
+    <!-- Ищет представление и подставляет переданные данные  -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/views/"/>
+        <!--не используйте /WEB-INF/views/* - получите HTTP Status 404 - /WEB-INF/views/*<pageName>.xhtml Not Found in ExternalContext as a Resource-->
+        <property name="suffix" value=".xhtml"/>
+    </bean>
+
+</beans>
