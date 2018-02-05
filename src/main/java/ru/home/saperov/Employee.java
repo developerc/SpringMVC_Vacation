@@ -54,4 +54,6 @@ public class Employee {
     public void setCanEdit(boolean canEdit) {
         this.canEdit = canEdit;
     }
+
+    /*rowStyleClass="#{employee.age le 30 ? 'employeeTableEvenRow' : ''}"*/
 }

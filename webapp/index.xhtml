@@ -46,20 +46,26 @@
          </h:dataTable>
       </h:form>
 
-      <p:dataTable value = "#{userData.employees}" var = "employee">
+      <h:outputStylesheet library="CSS" name="styles.css" />
+      <h:form>
+      <p:dataTable value = "#{userData.employees}" var = "employee"
+
+      >
          <p:column headerText="Name">
             <h:outputText value="#{employee.name}" />
          </p:column>
          <p:column headerText="Department">
             <h:outputText value="#{employee.department}" />
          </p:column>
-         <p:column headerText="Age">
-            <h:outputText value="#{employee.age}" />
+         <p:column headerText="Age" styleClass="#{employee.age eq 33 ? 'employeeTableEvenRow' : ''}">
+            <h:outputText value="#{employee.age}"/>
+
          </p:column>
          <p:column headerText="Salary">
             <h:outputText value="#{employee.salary}" />
          </p:column>
       </p:dataTable>
+      </h:form>
 
       <h:outputStylesheet library = "CSS" name = "styleshed.css"  />
       <h:form>
