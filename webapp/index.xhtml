@@ -80,7 +80,18 @@
            </p:dataTable>
        </h:form>
 
+    <h:form id="dynamic_columns">
+        <h3>Dynamic Data table example</h3>
+        <p:dataTable id="idTable" var="person" value="#{repData.tableData}">
+            <p:columns value="#{repData.columnHeaders}" var="column" columnIndexVar="colIndex">
+                <f:facet name="header">
+                    #{column}
+                </f:facet>
 
+                <h:outputText value="#{person[colIndex]}"/>
+            </p:columns>
+        </p:dataTable>
+    </h:form>
 
       <h:outputStylesheet library = "CSS" name = "styleshed.css"  />
       <h:form>
