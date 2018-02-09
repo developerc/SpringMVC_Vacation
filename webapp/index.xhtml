@@ -228,5 +228,19 @@
 
       </h:dataTable>
       </h:form>
+
+      <!--Динамически создаем таблицу PrimeFaces  -->
+      <h:form id="dynamic_date">
+         <h3>Dynamic Date table example</h3>
+         <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}">
+            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex">
+               <f:facet name="header">
+                  #{column}
+               </f:facet>
+
+               <h:outputText value="#{person[colIndex]}"/>
+            </p:columns>
+         </p:dataTable>
+      </h:form>
    </h:body>
 </html>
