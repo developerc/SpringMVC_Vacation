@@ -6,6 +6,7 @@ import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Date;
 import java.util.List;
 
 @ManagedBean(name="dateData", eager = true)
@@ -17,6 +18,7 @@ public class DateData {
     DateTimeFormatter dtf_dm = DateTimeFormatter.ofPattern("dd MMM");
     LocalDateTime localDT;
     String dt;  //дата начала периода
+    private Date date3;
    // LocalDateTime now = LocalDateTime.now(); //текущая дата
 
 public DateData(){
@@ -61,4 +63,14 @@ public DateData(){
     public List getColumnHeaders() {
         return columnHeaders;
     }
+
+    public Date getDate3() {
+        return date3;
+    }
+
+    public void setDate3(Date date3) {
+        this.date3 = date3;
+    }
+
+
 }

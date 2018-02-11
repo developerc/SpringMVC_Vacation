@@ -232,8 +232,8 @@
       <!--Динамически создаем таблицу PrimeFaces  -->
       <h:form id="dynamic_date">
          <h3>Dynamic Date table example</h3>
-         <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}">
-            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex">
+         <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}" scrollable="true" scrollWidth="100%">
+            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex" style="width:40px;">
                <f:facet name="header">
                   #{column}
                </f:facet>
@@ -241,6 +241,11 @@
                <h:outputText value="#{person[colIndex]}"/>
             </p:columns>
          </p:dataTable>
+
+         <h:panelGrid columns="2" cellpadding="5">
+            <p:outputLabel for="button" value="Button:" />
+            <p:calendar id="button" value="#{dateData.date3}" showOn="button" />
+         </h:panelGrid>
       </h:form>
    </h:body>
 </html>
