@@ -244,7 +244,9 @@
 
          <h:panelGrid columns="2" cellpadding="5">
             <p:outputLabel for="button" value="Button:" />
-            <p:calendar id="button" value="#{dateData.date3}" showOn="button" />
+            <p:calendar id="button" value="#{dateData.date3}" showOn="button">
+               <p:ajax event="dateSelect" listener="#{dateData.onDateSelect}" />
+            </p:calendar>
          </h:panelGrid>
       </h:form>
    </h:body>

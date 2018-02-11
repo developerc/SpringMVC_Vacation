@@ -1,5 +1,7 @@
 package ru.home.saperov;
 
+import org.primefaces.event.SelectEvent;
+
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
 import java.time.LocalDateTime;
@@ -72,5 +74,8 @@ public DateData(){
         this.date3 = date3;
     }
 
+    public void onDateSelect(SelectEvent event) {
 
+        System.out.println("date calendar selected");
+    }
 }
