@@ -5,6 +5,7 @@ import org.primefaces.event.SelectEvent;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.SessionScoped;
+import javax.faces.event.ActionEvent;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
@@ -27,6 +28,7 @@ public class DateData {
     String [] arrPers = new String[62];
     private int numDayFromBegYear3 = 0;
     private int numDayFromBegYear4 = 0;
+    private String console;
    // LocalDateTime now = LocalDateTime.now(); //текущая дата
 
 public DateData(){
@@ -163,6 +165,18 @@ public DateData(){
         } else {
         return 0;
     }
+    }
+
+    public String getConsole() {
+        return console;
+    }
+
+    public void setConsole(String console) {
+        this.console = console;
+    }
+
+    public void buttonAction(ActionEvent actionEvent){
+        System.out.println("buttonAction pressed");
     }
     /*<p:commandButton value="Submit"  actionListener="#{dateData.clickComButton}" icon="ui-icon-check" >*/
 }

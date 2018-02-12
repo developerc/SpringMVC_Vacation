@@ -228,20 +228,23 @@
 
       </h:dataTable>
       </h:form>
+      <!-- Добавление персонала  -->
+      <h:form>
+         <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5">
+            <p:outputLabel for="console" value="Персонал:" />
+            <p:selectOneMenu id="console" value="#{dateData.console}" style="width:125px">
+               <f:selectItem itemLabel="Select One" itemValue="" />
+               <f:selectItem itemLabel="Xbox One" itemValue="Xbox One" />
+               <f:selectItem itemLabel="PS4" itemValue="PS4" />
+               <f:selectItem itemLabel="Wii U" itemValue="Wii U" />
+            </p:selectOneMenu>
+            <p:inputText />
+            <p:commandButton value="Ajax Submit" id="ajax"  actionListener="#{dateData.buttonAction}" styleClass="ui-priority-primary" />
+         </h:panelGrid>
+      </h:form>
+      <!--Добавляем календарь  -->
 
-      <!--Динамически создаем таблицу PrimeFaces  -->
       <h:form id="dynamic_date">
-         <h3>Dynamic Date table example</h3>
-         <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}" scrollable="true" scrollWidth="100%">
-            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex" style="width:40px;" >
-               <f:facet name="header">
-                  #{column}
-               </f:facet>
-
-               <h:outputText value="#{person[colIndex]}"/>
-            </p:columns>
-         </p:dataTable>
-
          <h:panelGrid columns="2" cellpadding="5">
             <p:outputLabel for="button" value="Начало отпуска:" />
             <p:calendar id="button" value="#{dateData.date3}" showOn="button">
@@ -256,6 +259,19 @@
          <p:commandButton value="Submit" icon="ui-icon-check" >
             <p:ajax update="idDateTable" listener="#{dateData.clickComButton}"/>
          </p:commandButton>
+
+         <!--Динамически создаем таблицу PrimeFaces  -->
+         <h3>Пример динамического создания таблицы</h3>
+         <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}" scrollable="true" scrollWidth="100%">
+            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex" style="width:40px;" >
+               <f:facet name="header">
+                  #{column}
+               </f:facet>
+
+               <h:outputText value="#{person[colIndex]}"/>
+            </p:columns>
+         </p:dataTable>
       </h:form>
+
    </h:body>
 </html>
