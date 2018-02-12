@@ -233,7 +233,7 @@
       <h:form id="dynamic_date">
          <h3>Dynamic Date table example</h3>
          <p:dataTable id="idDateTable" var="person" value="#{dateData.tableData}" scrollable="true" scrollWidth="100%">
-            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex" style="width:40px;">
+            <p:columns value="#{dateData.columnHeaders}" var="column" columnIndexVar="colIndex" style="width:40px;" >
                <f:facet name="header">
                   #{column}
                </f:facet>
@@ -243,11 +243,19 @@
          </p:dataTable>
 
          <h:panelGrid columns="2" cellpadding="5">
-            <p:outputLabel for="button" value="Button:" />
+            <p:outputLabel for="button" value="Начало отпуска:" />
             <p:calendar id="button" value="#{dateData.date3}" showOn="button">
-               <p:ajax event="dateSelect" listener="#{dateData.onDateSelect}" />
+               <p:ajax event="dateSelect" listener="#{dateData.onDate3Select}" />
+            </p:calendar>
+
+            <p:outputLabel for="button2" value="Конец отпуска:" />
+            <p:calendar id="button2" value="#{dateData.date4}" showOn="button">
+               <p:ajax event="dateSelect" listener="#{dateData.onDate4Select}" />
             </p:calendar>
          </h:panelGrid>
+         <p:commandButton value="Submit" icon="ui-icon-check" >
+            <p:ajax update="idDateTable" listener="#{dateData.clickComButton}"/>
+         </p:commandButton>
       </h:form>
    </h:body>
 </html>
