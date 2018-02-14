@@ -259,5 +259,28 @@ public DateData(){
     public void subjectSelectionChanged(AjaxBehaviorEvent event){
         System.out.println("selectOneMenu event:" + event.getSource().toString());
     }
+
+    public void delEmployeeAction(){
+        int k = -1;
+        for (int i = 0; i < tableData.size(); i++){
+            if(tableData.get(i).get(0).equals(getSelectedItem())){
+                k=i;
+            }
+        }
+        if (k>=0){
+            items.remove(getSelectedItem());
+            tableData.remove(k);
+        }
+    }
+
+    public void clearEmployeeAction(){
+        for (int i=0; i<items.size(); i++){
+            if(tableData.get(i).get(0).equals(getSelectedItem())){
+                for (int k=1; k<(CNT_DAY_YEAR - 1); k++){
+                    tableData.get(i).set(k, "");
+                }
+            }
+        }
+    }
     /*<p:commandButton value="Submit"  actionListener="#{dateData.clickComButton}" icon="ui-icon-check" >*/
 }

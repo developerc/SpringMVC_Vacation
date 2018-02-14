@@ -235,7 +235,7 @@
             <!-- Добавление персонала  -->
       <h:form>
 
-         <h:panelGrid columns="4" style="margin-bottom:10px" cellpadding="5">
+         <h:panelGrid columns="5" style="margin-bottom:10px" cellpadding="5">
             <p:outputLabel for="console" value="Персонал:" />
             <p:selectOneMenu id="console" value="#{dateData.selectedItem}" style="width:300px">
 <!--               <f:selectItem itemLabel="#{dateData.firstItemEmployee}" />  -->
@@ -247,6 +247,9 @@
             <p:inputText id="elemlistonemenu" value="#{dateData.elemListOneMenu}"/>
             <!-- нажатием на кнопку добавляем сотрудника в список. По умолчанию Ajax включен, обновляется selectOneMenu -->
             <p:commandButton value="Добавить сотрудника" id="ajax"  actionListener="#{dateData.buttonAction}" styleClass="ui-priority-primary" update="console"/>
+            <!-- нажатием на кнопку удаляем сотрудника из списка. По умолчанию Ajax включен, обновляется selectOneMenu -->
+            <p:commandButton value="Удалить сотрудника" id="delEmp"  actionListener="#{dateData.delEmployeeAction}" styleClass="ui-priority-primary" update="console"/>
+
          </h:panelGrid>
       </h:form>
       <!--Добавляем календарь  -->
@@ -263,10 +266,13 @@
             <p:calendar id="button2" value="#{dateData.date4}" showOn="button">
                <p:ajax event="dateSelect" listener="#{dateData.onDate4Select}" />
             </p:calendar>
-         </h:panelGrid>
+
          <p:commandButton value="Обновить таблицу" icon="ui-icon-check" >
             <p:ajax update="idDateTable" listener="#{dateData.clickComButton}"/>
          </p:commandButton>
+             <!-- нажатием на кнопку очищаем отпуск у сотрудника из списка. По умолчанию Ajax включен, обновляется selectOneMenu -->
+             <p:commandButton value="Очистить отпуск" id="clrEmp"  actionListener="#{dateData.clearEmployeeAction}" styleClass="ui-priority-primary" update="idDateTable"/>
+         </h:panelGrid>
 
          <!--Динамически создаем таблицу PrimeFaces  -->
          <h3>Таблица отпусков сотрудников</h3>
